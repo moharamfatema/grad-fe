@@ -1,21 +1,14 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import Logo from '../../assets/img/50.png'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Logo from '../../assets/img/50.png';
+import appPaths from '../../shared/paths';
 
 const NavBar = () => {
-    const paths: {
-		path: string
-		label: string
-	}[] = [
-	    {
-	        path: '/',
-	        label: 'Home',
-	    },
-	    {
-	        path: '/about',
-	        label: 'Meet The Team',
-	    },
-	]
+    const paths =
+        appPaths.at(appPaths.length - 1)?.name === '404'
+            ? appPaths.slice(0, -1)
+            : appPaths;
+
     return (
         <nav className='navbar grid grid-flow-col grid-rows-1 grid-cols-4 bg-orange-500 text-white font-bold shadow-md'>
             <div
@@ -32,12 +25,12 @@ const NavBar = () => {
             <ul className='navbar__elements flex flex-row items-center justify-evenly col-span-3 text-xl'>
                 {paths.map(path => (
                     <li className='navbar__element p-3' key={path.path}>
-                        <Link to={path.path}>{path.label}</Link>
+                        <Link to={path.path}>{path.name}</Link>
                     </li>
                 ))}
             </ul>
         </nav>
-    )
-}
+    );
+};
 
-export default NavBar
+export default NavBar;

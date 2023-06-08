@@ -1,13 +1,14 @@
-import React from 'react'
-import NavBar from '../../modules/Nav/NavBar'
+import React from 'react';
+import NavBar from '../../modules/Nav/NavBar';
+import { Outlet } from 'react-router';
 
 const PublicLayout = () => {
     return (
         <main>
             <NavBar />
-            <h1>Public Layout</h1>
+            <Outlet />
         </main>
-    )
-}
+    );
+};
 
-export default PublicLayout
+export default PublicLayout;

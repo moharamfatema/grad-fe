@@ -1,31 +1,12 @@
-import React from 'react'
-import { Route, Routes, BrowserRouter } from 'react-router-dom'
-import PublicLayout from '../layouts/PublicLayout/PublicLayout'
+import React from 'react';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import PublicLayout from '../layouts/PublicLayout/PublicLayout';
+
+import { IPath } from '../types/paths';
+import paths from '../shared/paths';
 
 const AppRoutes = () => {
-    const routes: {
-		path: string
-		element: () => JSX.Element
-		exact?: boolean
-	}[] = [
-	    {
-	        path: '/',
-	        element: () => <div>Home</div>,
-	        exact: true,
-	    },
-	    {
-	        path: '/about',
-	        element: () => <div>About</div>,
-	    },
-	    {
-	        path: '/contact',
-	        element: () => <div>Contact</div>,
-	    },
-	    {
-	        path: '/*',
-	        element: () => <div>404</div>,
-	    },
-	]
+    const routes: IPath[] = paths;
     return (
         <BrowserRouter>
             <Routes>
@@ -34,13 +15,13 @@ const AppRoutes = () => {
                         <Route
                             key={route.path}
                             path={route.path}
-                            element={route.element()}
+                            element={route.component}
                         />
                     ))}
                 </Route>
             </Routes>
         </BrowserRouter>
-    )
-}
+    );
+};
 
-export default AppRoutes
+export default AppRoutes;
