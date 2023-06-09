@@ -1,7 +1,8 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 
 const Home: FC = () => {
-    return <div>Home</div>;
+    const [state, setState] = useState('home');
+    return <div>{state}</div>;
 };
 
 export default Home;

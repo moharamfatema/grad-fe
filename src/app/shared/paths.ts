@@ -7,18 +7,18 @@ const paths: IPath[] = [
     {
         name: 'Home',
         path: '/',
-        component: Home({}),
+        component: Home,
         exact: true,
     },
     {
         name: 'Meet the Team',
         path: '/about',
-        component: About({}),
+        component: About,
     },
     {
         name: '404',
         path: '*',
-        component: NotFound({}),
+        component: NotFound,
     },
 ];
 

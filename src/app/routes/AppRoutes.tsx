@@ -15,7 +15,7 @@ const AppRoutes = () => {
                         <Route
                             key={route.path}
                             path={route.path}
-                            element={route.component}
+                            element={route.component({})}
                         />
                     ))}
                 </Route>
