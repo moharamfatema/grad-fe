@@ -4,6 +4,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+    .bg-primary {
+        @apply bg-gradient-to-br from-orange-500 to-red-800;
+    }
+    .text-primary {
+        @apply text-transparent bg-clip-text bg-primary;
+    }
+
+}
+
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
@@ -23,7 +33,10 @@ button {
 }
 
 .btn-primary {
-    @apply bg-orange-500 text-white font-bold;
+    @apply bg-primary text-white font-bold;
 }
 
-
+/* form */
+.form-heading {
+    @apply text-primary;
+}
