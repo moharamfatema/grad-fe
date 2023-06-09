@@ -1,6 +1,6 @@
 export interface IPath {
     name: string;
     path: string;
-    component: React.ReactNode;
+    component: React.FC;
     exact?: boolean;
 }

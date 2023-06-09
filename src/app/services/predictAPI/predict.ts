@@ -13,3 +13,6 @@ const predictApi = createApi({
         }),
     }),
 });
+
+export const { usePredictQuery } = predictApi;
+export default predictApi;
