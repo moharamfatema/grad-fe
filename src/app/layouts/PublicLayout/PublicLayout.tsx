@@ -4,7 +4,7 @@ import { Outlet } from 'react-router';
 
 const PublicLayout = () => {
     return (
-        <main>
+        <main className='min-w-screen min-h-screen box-border flex flex-col'>
             <NavBar />
             <Outlet />
         </main>

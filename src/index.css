@@ -17,3 +17,13 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
 }
+
+button {
+    @apply px-4 py-3 shadow-md rounded-lg ;
+}
+
+.btn-primary {
+    @apply bg-orange-500 text-white font-bold;
+}
+
+
