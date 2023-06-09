@@ -3,7 +3,7 @@ export enum PredictionType {
     MultiClass = 'multi-class',
 }
 
-export interface PredictRequest {
+export interface IPredictRequest {
     video: File;
     predictionType: PredictionType;
 }

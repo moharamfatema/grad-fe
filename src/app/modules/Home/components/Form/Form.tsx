@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import './form.css';
+import { IPredictRequest, PredictionType } from '../../../../types/predict';
 
 type setIsFormType = React.Dispatch<React.SetStateAction<boolean>>;
 interface IForm {
@@ -7,13 +8,68 @@ interface IForm {
 }
 
 const Form: FC<IForm> = ({ setIsForm }) => {
+    const [predictionType, setPredictionType] = React.useState<
+        PredictionType | string
+    >('');
+    const [video, setVideo] = React.useState<File | null>(null);
+    const [videoError, setVideoError] = React.useState<string>('');
+    const [radioError, setRadioError] = React.useState<string>('');
+
+    const handleVideoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+        // limit the size of the video to 100MB
+        const maxSize = 100000000;
+        setVideoError('');
+        const reject = (message: string) => {
+            setVideoError(message);
+            e.target.value = '';
+            setVideo(null);
+        };
+
+        if (!e.target.files || e.target.files.length < 1) return;
+        console.debug(e.target.files);
+        // only video type is allowed
+        if (!e.target.files[0].type.includes('video')) {
+            console.error('File is not a video!');
+            reject('File is not a video!');
+            return;
+        }
+
+        if (e.target.files[0].size > maxSize) {
+            console.error('File is too big!');
+            reject('File is too big! Please upload a file less than 100MB.');
+            return;
+        }
+
+        setVideo(e.target.files ? e.target.files[0] : null);
+    };
+
+    const validateForm = () => {
+        if (!video) {
+            setVideoError('Please upload a video');
+            return false;
+        }
+        if (!predictionType) {
+            setVideoError('Please select a prediction type');
+            return false;
+        }
+        return true;
+    };
+    const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setPredictionType(e.target.value);
+        setRadioError('');
+    };
+
     const handleFormSubmit = (
         e: React.FormEvent<HTMLFormElement> | React.MouseEvent,
     ) => {
-        console.debug('Form submitted');
-
         e.preventDefault();
-        setIsForm(false);
+        if (!validateForm()) return;
+        const data: IPredictRequest = {
+            video: video as File,
+            predictionType: predictionType as PredictionType,
+        };
+        console.debug(data);
+        // setIsForm(false);
 
         console.error('Query not yet implmented');
     };
@@ -35,7 +91,16 @@ const Form: FC<IForm> = ({ setIsForm }) => {
                 >
                     Upload Video
                 </label>
-                <input type='file' accept='video/*' id='video-upload' />
+                <input
+                    required
+                    type='file'
+                    accept='video/*'
+                    id='video-upload'
+                    onChange={handleVideoUpload}
+                />
+                {videoError && (
+                    <p className='form__group--error err'>{videoError}</p>
+                )}
             </div>
             {/* radio group */}
             <div className='form__group group radio-group'>
@@ -51,6 +116,8 @@ const Form: FC<IForm> = ({ setIsForm }) => {
                         name='prediction-type'
                         id='binary-type'
                         className='radio'
+                        value='binary'
+                        onChange={handleRadioChange}
                     />
                     <label htmlFor='binary-type' className='radio-label'>
                         Binary Classification (violent or Normal)
@@ -62,11 +129,16 @@ const Form: FC<IForm> = ({ setIsForm }) => {
                         name='prediction-type'
                         id='multi-type'
                         className='radio'
+                        value='multi-class'
+                        onChange={handleRadioChange}
                     />
                     <label htmlFor='multi-type' className='radio-label'>
                         Multi Classification (Violence Type)
                     </label>
                 </div>
+                {radioError && (
+                    <p className='form__group--error err'>{radioError}</p>
+                )}
             </div>
             {/* submit button */}
             <div className='form__group group submit-group text-center'>

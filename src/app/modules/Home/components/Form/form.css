@@ -1,13 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
 .form__group:not(.submit-group) {
     @apply mb-4 p-5 rounded-lg border-gray-200 border mt-2 relative;
 }
 
-.form__group--label{
+.form__group--label {
     @apply absolute -top-2.5 left-4 text-orange-600 text-sm bg-white px-3;
 }
 
@@ -22,7 +17,7 @@
 .radio {
     @apply w-6 h-6 mr-3 relative;
 }
-.radio:checked{
+.radio:checked {
     @apply bg-orange-600;
 }
 .radio:checked:after {
@@ -34,12 +29,15 @@
     @apply text-3xl font-bold text-center mb-10;
 }
 
-
-.form button{
-    @apply w-1/3 text-center;
+.btn-primary {
+    @apply w-1/3 text-lg text-center p-3 rounded-full;
 }
 
+#video-upload {
+    @apply file:bg-orange-100 file:text-orange-700 my-3;
+    @apply file:border-none file:rounded-full file:p-3 file:mr-3 file:hover:cursor-pointer;
+}
 
-
-/* TODO: Style form upload button */
-
+.err {
+    @apply text-red-600 text-sm font-bold animate-error-shake;
+}

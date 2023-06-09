@@ -11,6 +11,9 @@
     .text-primary {
         @apply text-transparent bg-clip-text bg-primary;
     }
+    .bg-hover {
+        @apply bg-gradient-to-tl from-orange-500 to-red-800;
+    }
 
 }
 
@@ -34,9 +37,11 @@ button {
 
 .btn-primary {
     @apply bg-primary text-white font-bold;
+    @apply hover:bg-hover;
 }
 
 /* form */
 .form-heading {
     @apply text-primary;
 }
+
