@@ -31,8 +31,16 @@ const NavBar = () => {
             </div>
             <ul className='navbar__elements flex-row items-center justify-evenly col-span-2 text-xl hidden sm:flex'>
                 {paths.map(path => (
-                    <li className='navbar__element p-3' key={path.path}>
-                        <Link to={path.path}>{path.name}</Link>
+                    <li
+                        className='flex  justify-center items-center navbar__element font-light text-xl h-full w-full nav-link'
+                        key={path.path}
+                    >
+                        <Link
+                            to={path.path}
+                            className=' h-full w-full flex justify-center items-center p-3 hover:bg-white hover:bg-opacity-20'
+                        >
+                            {path.name}
+                        </Link>
                     </li>
                 ))}
             </ul>

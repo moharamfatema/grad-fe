@@ -95,34 +95,36 @@ const Form: FC<IForm> = ({ setIsForm, setRequest }) => {
                 Predict or Classify Violence in a Video using our AI Model
             </h1>
             {/* video upload */}
-            <div className='form__group group gap-5'>
-                <label
-                    htmlFor='video-upload'
-                    className='form__group--label group-label'
-                >
-                    Upload Video
-                </label>
-                <input
-                    required
-                    type='file'
-                    accept='video/*'
-                    id='video-upload'
-                    onChange={handleVideoUpload}
-                />
-                {/* video reset button */}
-                {video && video?.name !== '' && (
-                    <button
-                        type='button'
-                        title='Reset Video'
-                        className='btn-delete'
-                        onClick={handleVideoReset}
+            <div className='form__group group gap-5  justify-start'>
+                <div className='wrap flex justify-start items-center align-middle'>
+                    <label
+                        htmlFor='video-upload'
+                        className='form__group--label group-label'
                     >
-                        <i
-                            className='fa fa-trash fill-red-600 text-red-600'
-                            aria-hidden='true'
-                        ></i>
-                    </button>
-                )}
+                        Upload Video
+                    </label>
+                    <input
+                        required
+                        type='file'
+                        accept='video/*'
+                        id='video-upload'
+                        onChange={handleVideoUpload}
+                    />
+                    {/* video reset button */}
+                    {video && video?.name !== '' && (
+                        <button
+                            type='button'
+                            title='Reset Video'
+                            className='btn-delete'
+                            onClick={handleVideoReset}
+                        >
+                            <i
+                                className='fa fa-trash fill-red-600 text-red-600'
+                                aria-hidden='true'
+                            ></i>
+                        </button>
+                    )}
+                </div>
                 {/* video preview */}
                 {video && video?.name !== '' && (
                     <video

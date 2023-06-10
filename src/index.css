@@ -49,3 +49,8 @@ button {
 .card-link{
     @apply bg-primary;
 }
+/* nav */
+.nav-link::before{
+    content: '';
+    @apply block w-px h-[80%] bg-white;
+}
