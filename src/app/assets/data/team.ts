@@ -1,5 +1,6 @@
 import { IPerson } from '../../types/person';
 import Fatema from '../../assets/img/team/fatema.png';
+import Khafaga from '../../assets/img/team/Khafaga.png';
 const placeholder = 'https://dummyimage.com/100x100/fff/333';
 
 export const team: IPerson[] = [
