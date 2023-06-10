@@ -2,13 +2,15 @@ import React, { FC, useState, useEffect } from 'react';
 import Form from './components/Form/Form';
 import Result from './components/Result/Result';
 import { IPredictRequest } from '../../types/predict';
+import Loading from './components/Result/loading/Loading';
+import InternalError from '../Errors/InternalError/InternalError';
 
 const FORM = true;
 const RESULT = false;
 
 const Home: FC = () => {
     const [isForm, setIsForm] = useState(FORM);
-    const [request, setRequest] = useState<IPredictRequest | null>(null);
+    const [request, setRequest] = useState<FormData | null>(null);
     useEffect(() => {
         setIsForm(FORM);
     }, [setIsForm]);
@@ -21,7 +23,7 @@ const Home: FC = () => {
             {isForm ? (
                 <Form setIsForm={setIsForm} setRequest={setRequest} />
             ) : (
-                <Result request={request} />
+                <Result setIsForm={setIsForm} request={request} />
             )}
         </article>
     );

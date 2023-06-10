@@ -3,17 +3,32 @@ import { IPredictRequest } from '../../types/predict';
 
 const predictApi = createApi({
     reducerPath: 'predict',
-    baseQuery: fetchBaseQuery({ baseUrl: `${process.env.API_URL}/` }),
+    baseQuery: fetchBaseQuery({
+        baseUrl: 'http://localhost:8080/',
+        prepareHeaders: (headers, { getState }) => {
+            // no-cors
+            headers.set('Access-Control-Allow-Origin', '*');
+            headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+            headers.set('Access-Control-Allow-Headers', 'Content-Type');
+            //no cors
+
+            return headers;
+        },
+    }),
     endpoints: builder => ({
-        predict: builder.query<any, IPredictRequest>({
+        predict: builder.mutation<any, FormData>({
             query: body => ({
-                url: '/predict',
+                url: 'predict',
                 method: 'POST',
                 body,
+                formData: true,
             }),
+            transformResponse: (response: any) => {
+                return response;
+            },
         }),
     }),
 });
 
-export const { usePredictQuery } = predictApi;
+export const { usePredictMutation } = predictApi;
 export default predictApi;

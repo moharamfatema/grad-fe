@@ -3,9 +3,7 @@ import './form.css';
 import { IPredictRequest, PredictionType } from '../../../../types/predict';
 
 type setIsFormType = React.Dispatch<React.SetStateAction<boolean>>;
-type setRequestType = React.Dispatch<
-    React.SetStateAction<IPredictRequest | null>
->;
+type setRequestType = React.Dispatch<React.SetStateAction<FormData | null>>;
 interface IForm {
     setIsForm: setIsFormType;
     setRequest: setRequestType;
@@ -30,23 +28,21 @@ const Form: FC<IForm> = ({ setIsForm, setRequest }) => {
         // limit the size of the video to 100MB
         const maxSize = 100000000;
         setVideoError('');
+
         const reject = (message: string) => {
             setVideoError(message);
             e.target.value = '';
             setVideo(null);
         };
-        console.debug(e.target.files);
+
         if (!e.target.files || e.target.files.length < 1) return;
-        console.debug(e.target.files);
         // only video type is allowed
         if (!e.target.files[0].type.includes('video')) {
-            console.error('File is not a video!');
             reject('File is not a video!');
             return;
         }
 
         if (e.target.files[0].size > maxSize) {
-            console.error('File is too big!');
             reject('File is too big! Please upload a file less than 100MB.');
             return;
         }
@@ -75,14 +71,11 @@ const Form: FC<IForm> = ({ setIsForm, setRequest }) => {
     ) => {
         e.preventDefault();
         if (!validateForm()) return;
-        const data: IPredictRequest = {
-            video: video as File,
-            predictionType: predictionType as PredictionType,
-        };
+        const data = new FormData();
+        data.append('video', video as Blob);
+        data.append('predictionType', predictionType as string);
         setRequest(data);
         setIsForm(false);
-
-        console.error('Query not yet implmented');
     };
 
     return (
