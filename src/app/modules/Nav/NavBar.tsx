@@ -10,7 +10,7 @@ const NavBar = () => {
             : appPaths;
 
     return (
-        <nav className='navbar grid grid-flow-col grid-rows-1 grid-cols-3 bg-primary text-white font-bold shadow-md sticky top-0 w-full'>
+        <nav className='navbar grid grid-flow-col grid-rows-1 grid-cols-3 bg-primary text-white font-bold shadow-md sticky top-0 w-full z-50'>
             <div
                 id='logo'
                 className='logo flex flex-row items-center col-span-1 p-3 gap-2 font-extrabold'

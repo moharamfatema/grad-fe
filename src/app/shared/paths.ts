@@ -1,6 +1,6 @@
 import About from '../modules/About/About';
 import Home from '../modules/Home/Home';
-import NotFound from '../modules/NotFound/NotFound';
+import NotFound from '../modules/Errors/NotFound/NotFound';
 import { IPath } from '../types/paths';
 
 const paths: IPath[] = [

@@ -3,17 +3,28 @@ import './form.css';
 import { IPredictRequest, PredictionType } from '../../../../types/predict';
 
 type setIsFormType = React.Dispatch<React.SetStateAction<boolean>>;
+type setRequestType = React.Dispatch<
+    React.SetStateAction<IPredictRequest | null>
+>;
 interface IForm {
     setIsForm: setIsFormType;
+    setRequest: setRequestType;
 }
 
-const Form: FC<IForm> = ({ setIsForm }) => {
+const Form: FC<IForm> = ({ setIsForm, setRequest }) => {
     const [predictionType, setPredictionType] = React.useState<
         PredictionType | string
     >('');
     const [video, setVideo] = React.useState<File | null>(null);
     const [videoError, setVideoError] = React.useState<string>('');
     const [radioError, setRadioError] = React.useState<string>('');
+
+    const handleVideoReset = () => {
+        setVideo(null);
+        setVideoError('');
+        (document.getElementById('video-upload') as HTMLInputElement).value =
+            '';
+    };
 
     const handleVideoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
         // limit the size of the video to 100MB
@@ -24,7 +35,7 @@ const Form: FC<IForm> = ({ setIsForm }) => {
             e.target.value = '';
             setVideo(null);
         };
-
+        console.debug(e.target.files);
         if (!e.target.files || e.target.files.length < 1) return;
         console.debug(e.target.files);
         // only video type is allowed
@@ -49,7 +60,7 @@ const Form: FC<IForm> = ({ setIsForm }) => {
             return false;
         }
         if (!predictionType) {
-            setVideoError('Please select a prediction type');
+            setRadioError('Please select a prediction type');
             return false;
         }
         return true;
@@ -68,8 +79,8 @@ const Form: FC<IForm> = ({ setIsForm }) => {
             video: video as File,
             predictionType: predictionType as PredictionType,
         };
-        console.debug(data);
-        // setIsForm(false);
+        setRequest(data);
+        setIsForm(false);
 
         console.error('Query not yet implmented');
     };
@@ -84,7 +95,7 @@ const Form: FC<IForm> = ({ setIsForm }) => {
                 Predict or Classify Violence in a Video using our AI Model
             </h1>
             {/* video upload */}
-            <div className='form__group group'>
+            <div className='form__group group gap-5'>
                 <label
                     htmlFor='video-upload'
                     className='form__group--label group-label'
@@ -98,6 +109,28 @@ const Form: FC<IForm> = ({ setIsForm }) => {
                     id='video-upload'
                     onChange={handleVideoUpload}
                 />
+                {/* video reset button */}
+                {video && video?.name !== '' && (
+                    <button
+                        type='button'
+                        title='Reset Video'
+                        className='btn-delete'
+                        onClick={handleVideoReset}
+                    >
+                        <i
+                            className='fa fa-trash fill-red-600 text-red-600'
+                            aria-hidden='true'
+                        ></i>
+                    </button>
+                )}
+                {/* video preview */}
+                {video && video?.name !== '' && (
+                    <video
+                        src={video ? URL.createObjectURL(video) : ''}
+                        className='form__group--video rounded-md shadow-md max-w-xs'
+                        controls
+                    />
+                )}
                 {videoError && (
                     <p className='form__group--error err'>{videoError}</p>
                 )}

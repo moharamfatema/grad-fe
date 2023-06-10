@@ -41,3 +41,6 @@
 .err {
     @apply text-red-600 text-sm font-bold animate-error-shake;
 }
+.btn-delete {
+    @apply text-red-600 rounded-full border border-red-400 mb-5 shadow-none;
+}

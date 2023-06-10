@@ -1,0 +1,9 @@
+.card-link {
+    @apply text-white rounded-full box-border p-2 flex items-center justify-center;
+}
+.card-link.kaggle{
+    @apply px-2.5;
+}
+.card-link i {
+    @apply aspect-square text-center align-middle m-auto;
+}
