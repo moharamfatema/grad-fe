@@ -15,10 +15,14 @@ export const team: IPerson[] = [
         kaggle: 'https://kaggle.com/fatemamoharam',
     },
     {
-        name: 'Yousef Khafaga',
+        name: 'Youssef Khafaga',
         title: 'SWE | ML Engineer',
         bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel.',
-        picture: placeholder,
+        picture: Khafaga,
+        github: 'https://github.com/YoussefKhafaga',
+        linkedin: 'https://www.linkedin.com/in/youssef-khafaga-655b18205/',
+        email: 'ykhfaga@gmail.com',
+        kaggle: '',
     },
     {
         name: 'Nourhan Aboelsoaoud',
