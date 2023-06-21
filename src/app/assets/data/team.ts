@@ -35,7 +35,7 @@ export const team: IPerson[] = [
     {
         name: 'Mohamed Raslan',
         title: 'SWE | ML Engineer',
-        bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel.',
+        bio: 'Mohamed is a driven student and dedicated machine learning enthusiast with a strong interest in data science and research.',
         picture: Raslan,
     },
     {
