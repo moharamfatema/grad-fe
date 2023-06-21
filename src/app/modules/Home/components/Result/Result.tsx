@@ -1,9 +1,8 @@
 import React, { FC, useEffect } from 'react';
-import { IPredictRequest } from '../../../../types/predict';
 import { usePredictMutation } from '../../../../services/predictAPI/predict';
-import Loading from './loading/Loading';
+import Loading from '../../../loaders/loading/Loading';
 import InternalError from '../../../Errors/InternalError/InternalError';
-import { SerializedError } from '@reduxjs/toolkit';
+import Chart from './components/Chart';
 
 type setIsFormType = React.Dispatch<React.SetStateAction<boolean>>;
 interface IResult {
@@ -23,7 +22,11 @@ const Result: FC<IResult> = ({ setIsForm, request }) => {
         if ('status' in error) {
             // you can access all properties of `FetchBaseQueryError` here
             setErrMsg(
-                'error' in error ? error.error : JSON.stringify(error.data),
+                'error' in error
+                    ? error.status === 'FETCH_ERROR'
+                        ? '500'
+                        : error.error
+                    : JSON.stringify(error.data),
             );
         } else {
             // you can access all properties of `SerializedError` here
@@ -38,15 +41,20 @@ const Result: FC<IResult> = ({ setIsForm, request }) => {
     }, [data]);
 
     return (
-        <section id='result' className='w-full max-h-[600px] flex'>
+        <section
+            id='result'
+            className='w-full max-h-[600px] flex flex-col mb-20'
+        >
             {isLoading ? (
                 <Loading />
             ) : isError && error ? (
-                <div>{errMsg}</div>
+                errMsg === '500' ? (
+                    <InternalError />
+                ) : (
+                    <div>ERROR: {errMsg}</div>
+                )
             ) : data ? (
-                <div>
-                    {data.status} {data.prediction}
-                </div>
+                <Chart data={data} />
             ) : null}
 
             {/* go back button */}

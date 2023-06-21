@@ -2,8 +2,9 @@ import React, { FC, useState, useEffect } from 'react';
 import Form from './components/Form/Form';
 import Result from './components/Result/Result';
 import { IPredictRequest } from '../../types/predict';
-import Loading from './components/Result/loading/Loading';
+import Loading from '../loaders/loading/Loading';
 import InternalError from '../Errors/InternalError/InternalError';
+import Chart from './components/Result/components/Chart';
 
 const FORM = true;
 const RESULT = false;
