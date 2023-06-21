@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import { Chart as Piechart } from 'react-google-charts';
 import Loading from '../../../../loaders/loading/Loading';
 
@@ -17,13 +17,7 @@ const Chart: FC<IChart> = ({ data }) => {
         console.debug(chartdata);
         return chartdata;
     };
-    // let chartdata = preprocess(data);
-    // console.debug(chartdata);
-    // useEffect(() => {
-    //     chartdata = preprocess(data);
-    //     console.debug(chartdata);
-    // }
-    // , [data]);
+
     return (
         <Piechart
             chartType='PieChart'
