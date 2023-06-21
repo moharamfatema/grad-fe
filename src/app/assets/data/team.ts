@@ -2,6 +2,8 @@ import { IPerson } from '../../types/person';
 import Fatema from '../../assets/img/team/fatema.png';
 const placeholder = 'https://dummyimage.com/100x100/fff/333';
 import Nourhan from '../../assets/img/team/nourhan.png';
+import Raslan from '../../assets/img/team/Raslan.png';
+import Yousef from '../../assets/img/team/Khafaga.png';
 
 export const team: IPerson[] = [
     {
@@ -19,7 +21,7 @@ export const team: IPerson[] = [
         name: 'Yousef Khafaga',
         title: 'SWE | ML Engineer',
         bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel.',
-        picture: placeholder,
+        picture: Yousef,
     },
     {
         name: 'Nourhan Aboelsoaoud',
@@ -28,14 +30,13 @@ export const team: IPerson[] = [
         picture: Nourhan,
         github: 'https://github.com/NourhanWaleed',
         linkedin: 'https://www.linkedin.com/in/nourhan-waleed-964230214',
-        email: 'nourhanaboelsoaoud@gmail.com'
-
+        email: 'nourhanaboelsoaoud@gmail.com',
     },
     {
         name: 'Mohamed Raslan',
         title: 'SWE | ML Engineer',
         bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel.',
-        picture: placeholder,
+        picture: Raslan,
     },
     {
         name: 'Mohanad Bashar',

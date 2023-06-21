@@ -7,3 +7,6 @@
 .card-link i {
     @apply aspect-square text-center align-middle m-auto;
 }
+.card__image{
+    @apply w-[100px] h-[100px] overflow-clip;
+}
