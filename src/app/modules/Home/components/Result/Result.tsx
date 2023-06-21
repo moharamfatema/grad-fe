@@ -43,7 +43,7 @@ const Result: FC<IResult> = ({ setIsForm, request }) => {
     return (
         <section
             id='result'
-            className='w-full max-h-[600px] flex flex-col mb-20'
+            className='w-full h-full max-h-[600px] flex flex-col mb-20 gap-10'
         >
             {isLoading ? (
                 <Loading />
@@ -59,7 +59,7 @@ const Result: FC<IResult> = ({ setIsForm, request }) => {
 
             {/* go back button */}
             <button
-                className='btn btn--primary'
+                className='btn btn-primary mx-auto'
                 onClick={() => setIsForm(true)}
             >
                 Go Back

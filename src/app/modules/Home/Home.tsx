@@ -1,13 +1,8 @@
 import React, { FC, useState, useEffect } from 'react';
 import Form from './components/Form/Form';
 import Result from './components/Result/Result';
-import { IPredictRequest } from '../../types/predict';
-import Loading from '../loaders/loading/Loading';
-import InternalError from '../Errors/InternalError/InternalError';
-import Chart from './components/Result/components/Chart';
 
 const FORM = true;
-const RESULT = false;
 
 const Home: FC = () => {
     const [isForm, setIsForm] = useState(FORM);
@@ -19,13 +14,14 @@ const Home: FC = () => {
     return (
         <article
             id='home'
-            className='home container p-10 box-border border border-gray-200 shadow-md max-h-[500px] m-auto'
+            className='home container p-10 box-border border border-gray-200 shadow-md my-10 mx-auto h-fit'
         >
             {isForm ? (
                 <Form setIsForm={setIsForm} setRequest={setRequest} />
             ) : (
                 <Result setIsForm={setIsForm} request={request} />
             )}
+            {/* <Result setIsForm={setIsForm} request={request} /> */}
         </article>
     );
 };
