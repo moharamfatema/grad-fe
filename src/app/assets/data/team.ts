@@ -4,6 +4,7 @@ const placeholder = 'https://dummyimage.com/100x100/fff/333';
 import Nourhan from '../../assets/img/team/nourhan.png';
 import Raslan from '../../assets/img/team/Raslan.png';
 import Yousef from '../../assets/img/team/Khafaga.png';
+import Khafaga from '../../assets/img/team/Khafaga.png';
 
 export const team: IPerson[] = [
     {
@@ -18,10 +19,13 @@ export const team: IPerson[] = [
         kaggle: 'https://kaggle.com/fatemamoharam',
     },
     {
-        name: 'Yousef Khafaga',
+        name: 'Youssef Khafaga',
         title: 'SWE | ML Engineer',
-        bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel.',
-        picture: Yousef,
+        bio: 'Hard working software engineer with machine learning skills, Played a key role in object detection problem, feature extraction and classification problem beside being the team leader.',
+        picture: Khafaga,
+        email: 'ykhfaga@gmail.com',
+        linkedin: 'https://www.linkedin.com/in/youssef-khafaga-655b18205/',
+        github: 'https://github.com/YoussefKhafaga',
     },
     {
         name: 'Nourhan Aboelsoaoud',
