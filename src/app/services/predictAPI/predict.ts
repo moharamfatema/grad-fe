@@ -1,11 +1,13 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { IPredictRequest } from '../../types/predict';
 
 const predictApi = createApi({
     reducerPath: 'predict',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'http://localhost:8080/',
-        prepareHeaders: (headers, { getState }) => {
+        // baseUrl: env variable REACT_APP_API_URL
+        baseUrl: `${process.env.REACT_APP_API_URL}`,
+        // baseUrl       : 'http://localhost:8080/',
+        timeout: 3600000,
+        prepareHeaders: headers => {
             // no-cors
             headers.set('Access-Control-Allow-Origin', '*');
             headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
@@ -24,7 +26,7 @@ const predictApi = createApi({
                 formData: true,
             }),
             transformResponse: (response: any) => {
-                return response;
+                return response.prediction;
             },
         }),
     }),

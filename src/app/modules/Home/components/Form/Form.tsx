@@ -73,7 +73,7 @@ const Form: FC<IForm> = ({ setIsForm, setRequest }) => {
         if (!validateForm()) return;
         const data = new FormData();
         data.append('video', video as Blob);
-        data.append('predictionType', predictionType as string);
+        data.append('prediction_type', predictionType as string);
         setRequest(data);
         setIsForm(false);
     };

@@ -1,16 +1,15 @@
 import { IPerson } from '../../types/person';
 import Fatema from '../../assets/img/team/fatema.png';
-const placeholder = 'https://dummyimage.com/100x100/fff/333';
 import Nourhan from '../../assets/img/team/nourhan.png';
 import Raslan from '../../assets/img/team/Raslan.png';
-import Yousef from '../../assets/img/team/Khafaga.png';
 import Khafaga from '../../assets/img/team/Khafaga.png';
+import mohanad from '../../assets/img/team/mohanad.jpg';
 
 export const team: IPerson[] = [
     {
         name: 'Fatema Moharam',
         title: 'SWE | ML Engineer',
-        bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel.',
+        bio: 'Motivated software engineer with experience in developing high-quality solutions. Passionate about technology to improve business outcomes. Responsibilities include: front-end & backend development, GCP deployment, hyperparameter tuning, data labeling, model optimization, and data processing.',
         picture: Fatema,
         github: 'https://github.com/moharamfatema',
         portfolio: 'https://moharamfatema.github.io',
@@ -46,6 +45,6 @@ export const team: IPerson[] = [
         name: 'Mohanad Bashar',
         title: 'SWE | ML Engineer',
         bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel.',
-        picture: placeholder,
+        picture: mohanad,
     },
 ];
