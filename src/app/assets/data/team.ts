@@ -39,8 +39,11 @@ export const team: IPerson[] = [
     {
         name: 'Mohamed Raslan',
         title: 'SWE | ML Engineer',
-        bio: 'Mohamed is a driven student and dedicated machine learning enthusiast with a strong interest in data science and research.',
+        bio: 'Mohamed is a driven student and dedicated machine learning enthusiast with a strong interest in data science and research. With a background in data analysis and deep learning algorithms, he played a vital role in the development and fine-tuning of our violence detection model. Mohamed\'s expertise extended to exploring datasets, annotating video frames, and implementing transfer learning techniques to improve the model\'s generalization across different datasets. Additionally, he made valuable contributions to designing the backend for this website and its docker container deployment.',
         picture: Raslan,
+        email: 'raslanmohamed.mr@gmail.com',
+        linkedin: 'www.linkedin.com/in/mohamed-raslan1',
+        kaggle: 'https://www.kaggle.com/mohamedraslann',
     },
     {
         name: 'Mohanad Bashar',
