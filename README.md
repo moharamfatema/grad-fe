@@ -1,8 +1,13 @@
 # Getting Started with Create React App
 
-deployed at https://vivit-violence-api.ey.r.appspot.com/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![GCP](https://img.shields.io/badge/GCP-Google%20Cloud%20Platform-yellow.svg?style=for-the-badge)](https://cloud.google.com/)
+[![React](https://img.shields.io/badge/React-17.0.2-blue.svg?style=for-the-badge)](https://reactjs.org/)
+[![RTK](https://img.shields.io/badge/RTK-1.6.1-blueviolet.svg?style=for-the-badge)](https://redux-toolkit.js.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-2.2.16-blueviolet.svg?style=for-the-badge)](https://tailwindcss.com/)
+
+deployed at https://vivit-violence-api.ey.r.appspot.com/
 
 ## Available Scripts
 
